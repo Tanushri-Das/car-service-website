@@ -5,9 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import "./Team.css";
-import img1 from "../../../../public/assets/images/team/1.jpg";
-import img2 from "../../../../public/assets/images/team/2.jpg";
-import img3 from "../../../../public/assets/images/team/3.jpg";
+import { teams } from "@/lib/teams";
 import Image from "next/image";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { IoIosArrowRoundBack } from "react-icons/io";
@@ -20,29 +18,6 @@ import {
 import Link from "next/link";
 
 const Team = () => {
-  const teamMembers = [
-    {
-      image: img1,
-      title: "John Doe",
-      designation: "Chief Mechanic",
-    },
-    {
-      image: img2,
-      title: "Jane Smith",
-      designation: "Engine Specialist",
-    },
-    {
-      image: img3,
-      title: "Mike Johnson",
-      designation: "Transmission Expert",
-    },
-    {
-      image: "https://i.ibb.co/17Wc8tp/pritom.webp",
-      title: "Sarah Williams",
-      designation: "Customer Service Manager",
-    },
-  ];
-
   const [swiperSlidesPerView, setSwiperSlidesPerView] = useState(1);
 
   useEffect(() => {
@@ -95,7 +70,7 @@ const Team = () => {
         modules={[Navigation]}
         className="mySwiper mt-10 h-[500px] md:h-96 relative"
       >
-        {teamMembers.map((review, index) => (
+        {teams.map((review, index) => (
           <SwiperSlide key={index} style={{ height: "100%" }}>
             <div className="flex flex-col border border-gray-200 rounded-xl px-4 pt-4 h-full">
               <div className="w-full h-64 relative rounded-lg mb-4">
