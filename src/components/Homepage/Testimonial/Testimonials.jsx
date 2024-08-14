@@ -13,11 +13,10 @@ import { FaQuoteRight } from "react-icons/fa";
 
 const Testimonials = () => {
   const [swiperSlidesPerView, setSwiperSlidesPerView] = useState(1);
-
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 992) {
-        // Large screens
+      if (window.innerWidth >= 900) {
+        // Medium screens
         setSwiperSlidesPerView(2);
       } else {
         // Small screens
@@ -36,6 +35,7 @@ const Testimonials = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   return (
     <div className="m-12 relative">
       <div className="text-center">
@@ -58,7 +58,7 @@ const Testimonials = () => {
           nextEl: ".swiper-button-next",
         }}
         modules={[Navigation]}
-        className="mySwiper mt-10 h-[500px] md:h-[220px] relative"
+        className="mySwiper mt-10 h-[220px] relative"
       >
         {reviews.map((review, index) => (
           <SwiperSlide key={index} style={{ height: "100%" }}>
@@ -97,15 +97,15 @@ const Testimonials = () => {
       </Swiper>
       {/* Left Border with Previous Button */}
       <div className="swiper-button-prev-parent-div">
-        <div className="swiper-button-prev">
-          <IoIosArrowRoundBack className="text-xs" />
+        <div className="swiper-button-prev-div">
+          <IoIosArrowRoundBack />
         </div>
       </div>
 
       {/* Right Border with Next Button */}
       <div className="swiper-button-next-parent-div">
-        <div className="swiper-button-next">
-          <IoIosArrowRoundForward className="text-xs" />
+        <div className="swiper-button-next-div">
+          <IoIosArrowRoundForward />
         </div>
       </div>
     </div>

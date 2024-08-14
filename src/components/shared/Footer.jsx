@@ -12,7 +12,7 @@ import {
 const Footer = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 bg-[#151515] text-base-content p-10">
-      <div className="border-2">
+      <div className="flex flex-col items-center mb-3">
         <Link href={"/"}>
           <Image alt="logo" src={footerlogo} height={60} width={100} />
         </Link>
@@ -20,7 +20,7 @@ const Footer = () => {
           Edwin Diaz is a software and web technologies engineer, a life coach
           trainer who is also a serial .
         </p>
-        <div className="flex items-center space-x-3 mb-8">
+        <div className="flex space-x-3 mb-8">
           <button className="flex justify-center items-center bg-[#F5F5F8] rounded-full w-[55px] h-[55px]">
             <FaGoogle className="text-black text-xl" />
           </button>
@@ -44,8 +44,8 @@ const Footer = () => {
           </button>
         </div>
       </div>
-      <div className="border-2 ">
-        <h6 className="text-[20px] text-white font-semibold mb-11 text-center">
+      <div className="mb-10 sm:mb-10">
+        <h6 className="text-[20px] text-white font-semibold mb-8 text-center">
           About
         </h6>
         <Link href="/" className="text-accent text-center block mb-4">
@@ -58,8 +58,8 @@ const Footer = () => {
           Contact
         </Link>
       </div>
-      <div className="border-2 ">
-        <h6 className="text-[20px] text-white font-semibold mb-11 text-center">
+      <div className="mb-10">
+        <h6 className="text-[20px] text-white font-semibold mb-8 text-center">
           Company
         </h6>
         <Link href="/" className="text-accent text-center block mb-4">
@@ -69,8 +69,8 @@ const Footer = () => {
           Contact
         </Link>
       </div>
-      <div className="border-2 ">
-        <h6 className="text-[20px] text-white font-semibold mb-11 text-center">
+      <div className="mb-10">
+        <h6 className="text-[20px] text-white font-semibold mb-8 text-center">
           Support
         </h6>
         <Link href="/" className="text-accent text-center block mb-4">

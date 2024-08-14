@@ -19,7 +19,7 @@ const Choose = () => {
         The majority have suffered alteration in some form, by injected humour,
         or randomised words which don't look even slightly believable.
       </p>
-      <div className="grid grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
         {[img1, img3, img4, img5, img6].map((img, index) => (
           <div
             key={index}
@@ -29,7 +29,7 @@ const Choose = () => {
               src={img}
               alt="Core Feature Image"
               width={75.63}
-              height={75.63} // Set a uniform height for all images
+              height={75.63}
               className="object-cover rounded-lg"
             />
             <h3 className="text-lg font-bold text-[#444444] text-center my-2">

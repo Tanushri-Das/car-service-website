@@ -4,7 +4,7 @@ import ProductCard from "../cards/ProductCard";
 
 const Products = () => {
   return (
-    <div className="m-4 md:mx-20 md:mb-12">
+    <div className="m-12 md:mx-20 md:mb-12">
       <h3 className="font-bold text-primary text-[20px] text-center mb-1">
         Popular Products
       </h3>
