@@ -31,7 +31,7 @@ const Navbar = () => {
             <IoCartOutline className="text-xl" />
             <IoSearchSharp className="text-xl" />
             <Link href="/login">
-              <button className="btn border border-primary font-semibold text-lg text-primary">
+              <button className="btn border border-primary bg-white font-semibold text-lg text-primary">
                 Login
               </button>
             </Link>
