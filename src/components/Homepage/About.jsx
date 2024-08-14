@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const About = () => {
   return (
-    <div className="mx-12 mt-12 mb-32">
+    <div className="mx-12 mt-12 mb-20">
       <div className="flex flex-col lg:flex-row items-center">
         <div className="lg:w-1/2 relative mb-28 lg:mb-0">
           <Image src={person} className="w-3/4 rounded-lg shadow-2xl" />
