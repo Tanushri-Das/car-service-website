@@ -1,8 +1,10 @@
 import React from "react";
 import ServiceCard from "../cards/ServiceCard";
-import { services } from "@/lib/services";
+import { getServices } from "@/services/getServices";
 
-const Services = () => {
+const Services = async () => {
+  const { services } = await getServices();
+  // console.log(services);
   return (
     <div className="m-12 md:mx-12 md:mb-12">
       <h3 className="font-bold text-primary text-[20px] text-center mb-1">
@@ -16,9 +18,10 @@ const Services = () => {
         or randomised words which don't look even slightly believable.{" "}
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service) => (
-          <ServiceCard key={service._id} service={service} />
-        ))}
+        {services.length > 0 &&
+          services?.map((service) => (
+            <ServiceCard key={service._id} service={service} />
+          ))}
       </div>
       <div className="mt-8 flex justify-center items-center">
         <button className="border border-primary py-2 px-4 rounded font-semibold text-primary">
