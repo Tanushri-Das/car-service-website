@@ -16,10 +16,10 @@ const page = () => {
     console.log(newUser);
     const res = await fetch("http://localhost:3000/signup/api", {
       method: "POST",
-      body: JSON.stringify(newUser),
       headers: {
         "content-type": "application/json",
       },
+      body: JSON.stringify(newUser),
     });
     console.log(res);
     if (res.status === 200) {
