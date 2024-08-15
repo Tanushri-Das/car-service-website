@@ -4,7 +4,6 @@ import { getServices } from "@/services/getServices";
 
 const Services = async () => {
   const { services } = await getServices();
-  // console.log(services);
   return (
     <div className="m-12 md:mx-12 md:mb-12">
       <h3 className="font-bold text-primary text-[20px] text-center mb-1">
