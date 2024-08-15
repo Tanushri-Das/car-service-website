@@ -3,8 +3,10 @@ import React from "react";
 import Link from "next/link";
 import { IoCartOutline, IoSearchSharp } from "react-icons/io5";
 import Image from "next/image";
+import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
+  const session = useSession();
   return (
     <div className="bg-base-100 text-slate-900 border-b-[1px] px-10 py-2">
       <div className="navbar container mx-auto">
@@ -30,11 +32,22 @@ const Navbar = () => {
           <div className="flex space-x-3 items-center">
             <IoCartOutline className="text-xl" />
             <IoSearchSharp className="text-xl" />
-            <Link href="/login">
-              <button className="btn border border-primary bg-white font-semibold text-lg text-primary">
-                Login
+            {session?.status === "loading" && <h6>Loading....</h6>}
+            {session?.status === "unauthenticated" && (
+              <Link href="/login">
+                <button className="btn border border-primary font-semibold text-lg text-primary">
+                  Login
+                </button>
+              </Link>
+            )}
+            {session?.status === "authenticated" && (
+              <button
+                onClick={() => signOut()}
+                className="btn border border-primary font-semibold text-lg text-primary"
+              >
+                LogOut
               </button>
-            </Link>
+            )}
           </div>
         </div>
       </div>

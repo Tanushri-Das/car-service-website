@@ -84,7 +84,7 @@ const page = () => {
               />
             </div>
             <button className="btn btn-primary font-semibold text-[20px] text-white w-full">
-              Sign In
+              Sign Up
             </button>
             <h3 className="text-[#444444] text-center my-5">Or Sign In with</h3>
             <SocialSignin />
