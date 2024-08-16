@@ -156,7 +156,7 @@
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const UpdatePage = ({ params }) => {
@@ -164,14 +164,19 @@ const UpdatePage = ({ params }) => {
   const [booking, setBooking] = useState([]);
   const router = useRouter();
 
-  const loadBooking = async () => {
-    const bookingDetails = await fetch(
-      `http://localhost:3000/my-bookings/api/booking/${params.id}`
-    );
-    const data = await bookingDetails.json();
-    console.log(data);
-    setBooking(data.data);
-  };
+  const loadBooking = useCallback(async () => {
+    try {
+      const bookingDetails = await fetch(
+        `http://localhost:3000/my-bookings/api/booking/${params.id}`
+      );
+      const data = await bookingDetails.json();
+      console.log(data);
+      setBooking(data.data);
+    } catch (error) {
+      console.error("Error loading booking:", error);
+      toast.error("Failed to load booking details.");
+    }
+  }, [params.id]);
 
   const handleUpdateBooking = async (e) => {
     e.preventDefault();
@@ -199,7 +204,7 @@ const UpdatePage = ({ params }) => {
 
   useEffect(() => {
     loadBooking();
-  }, [params, loadBooking]); // Add loadBooking to the dependency array
+  }, [loadBooking]); // Dependency array includes loadBooking
 
   return (
     <div className="container mx-auto p-24">
