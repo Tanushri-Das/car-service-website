@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const page = ({ params }) => {
+const CheckoutPage = ({ params }) => {
   const { data } = useSession();
   const [service, setService] = useState({});
   const router = useRouter();
@@ -152,4 +152,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default CheckoutPage;
