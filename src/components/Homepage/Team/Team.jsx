@@ -57,7 +57,8 @@ const Team = () => {
         </h5>
         <p className="text-[#737373] text-[16px] font-normal mb-10 w-full max-w-[717px] mx-auto text-center capitalize">
           The majority have suffered alteration in some form, by injected
-          humour, or randomised words which don't look even slightly believable.
+          humour, or randomised words which don&apos;t look even slightly
+          believable.
         </p>
       </div>
       <Swiper
