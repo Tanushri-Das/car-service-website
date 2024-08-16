@@ -5,6 +5,7 @@ import { FiTrash } from "react-icons/fi";
 import Link from "next/link";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
+import { toast } from "react-toastify";
 
 const page = () => {
   const session = useSession();
@@ -17,9 +18,26 @@ const page = () => {
     console.log(data);
     setBookings(data.myBookings);
   };
+
+  const handleDelete = async (id) => {
+    const deleted = await fetch(
+      `http://localhost:3000/my-bookings/api/delete-booking/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+    console.log(deleted);
+    const res = await deleted.json();
+    if (res?.response?.deletedCount > 0) {
+      toast.success("Service deleted successfully");
+      loadData();
+    }
+  };
+
   useEffect(() => {
     loadData();
   }, [session]);
+
   return (
     <div className="m-4 md:m-12">
       <div className="relative h-72">
@@ -62,7 +80,7 @@ const page = () => {
                         <MdOutlineModeEdit className="text-xl" />
                       </button>
                     </Link>
-                    <button>
+                    <button onClick={() => handleDelete(booking._id)}>
                       <FiTrash className="text-xl ms-4" />
                     </button>
                   </td>
