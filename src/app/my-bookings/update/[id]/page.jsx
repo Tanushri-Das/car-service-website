@@ -199,7 +199,7 @@ const UpdatePage = ({ params }) => {
 
   useEffect(() => {
     loadBooking();
-  }, [params]);
+  }, [params, loadBooking]); // Add loadBooking to the dependency array
 
   return (
     <div className="container mx-auto p-24">
