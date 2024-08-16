@@ -89,6 +89,7 @@
 
 // export default LoginPage;
 
+"use client";
 import React, { Suspense } from "react";
 import SocialSignin from "@/components/shared/SocialSignin";
 import Image from "next/image";
