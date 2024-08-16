@@ -2,7 +2,6 @@ import { connectDB } from "@/lib/connectDB";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
-import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 
 const handler = NextAuth({
@@ -42,17 +41,13 @@ const handler = NextAuth({
       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
       clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
     }),
-    GitHubProvider({
-      clientId: process.env.NEXT_PUBLIC_GITHUB_ID,
-      clientSecret: process.env.NEXT_PUBLIC_GITHUB_SECRET,
-    }),
   ],
   pages: {
     signIn: "/login",
   },
   callbacks: {
     async signIn({ user, account }) {
-      if (account.provider === "google" || account.provider === "github") {
+      if (account.provider === "google") {
         console.log("user", user);
         const { name, email } = user;
         console.log("email", email);

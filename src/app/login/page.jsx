@@ -4,11 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 
 const page = () => {
-  const router = useRouter();
+  const searchParams = useSearchParams();
+  const path = searchParams.get("redirect");
+
   const handleLogin = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -16,13 +18,13 @@ const page = () => {
     const response = await signIn("credentials", {
       email,
       password,
-      redirect: false,
+      redirect: true,
+      callbackUrl: path ? path : "/",
     });
     console.log(response);
     if (response.status === 200) {
       e.target.reset();
       toast.success("Login successfully");
-      router.push("/");
     }
   };
   return (

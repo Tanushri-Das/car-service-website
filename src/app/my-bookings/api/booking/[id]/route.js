@@ -17,10 +17,10 @@ export const DELETE = async (request, { params }) => {
   }
 };
 
-export const PATCH = async (req, { params }) => {
+export const PATCH = async (request, { params }) => {
   const db = await connectDB();
   const bookingsCollection = db.collection("bookings");
-  const updateDoc = await req.json();
+  const updateDoc = await request.json();
   try {
     const res = await bookingsCollection.updateOne(
       { _id: new ObjectId(params.id) },

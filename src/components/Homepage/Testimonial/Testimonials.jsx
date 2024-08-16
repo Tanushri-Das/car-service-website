@@ -54,8 +54,8 @@ const Testimonials = () => {
         slidesPerView={swiperSlidesPerView}
         spaceBetween={30}
         navigation={{
-          prevEl: ".swiper-button-prev",
-          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev-div",
+          nextEl: ".swiper-button-next-div",
         }}
         modules={[Navigation]}
         className="mySwiper mt-10 h-[220px] relative"
