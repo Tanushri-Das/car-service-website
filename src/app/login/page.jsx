@@ -7,7 +7,7 @@ import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 
-const page = () => {
+const LoginPage = () => {
   const searchParams = useSearchParams();
   const path = searchParams.get("redirect");
 
@@ -87,4 +87,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default LoginPage;
