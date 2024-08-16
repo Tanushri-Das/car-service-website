@@ -89,6 +89,8 @@
 
 // export default LoginPage;
 
+
+"use client";
 import React from "react";
 import SocialSignin from "@/components/shared/SocialSignin";
 import Image from "next/image";
